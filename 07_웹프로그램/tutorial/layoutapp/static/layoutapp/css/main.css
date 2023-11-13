@@ -1,0 +1,47 @@
+#header {
+    background-color: #F28888;
+    color: black;
+    text-align: center;
+    padding: 5px;
+}
+/* id=nav에 대한 네비게이션영역 스타일 지정
+    - 배경색 : 노랑
+    - 너비 : 100%
+    - 높이 30px
+    - 안쪽 여백: 5px
+    - 텍스트 정렬 : 중앙*/
+#nav {
+    background-color: #F2A7A0;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+}
+/* id=section1에 대한 본문영역 스타일 지정
+    - 배경색 : 보라색
+    - 글자색 : 흰색
+    - 안쪽 여백 : 5px
+    - 너비 : 50%*/
+#section1 {
+    background-color: #CAD9A9;
+    color: black;
+    width: 50%;
+    /* 다음 영역 붙이기
+        float 있는 것들 끼리 붙음 */
+    float: left;
+}
+/* id=section2에 대한 본문영역 스타일 지정 */
+#section2 {
+    background-color: #CAD9A9;
+    color: black;
+    width: 50%;
+    /* 다음 영역 붙이기 */
+    float: left;
+}
+/* id=footer에 대한 하단영역 스타일 지정 */
+#footer {
+    background-color: #D9BB84;
+    text-align: center;
+    padding: 5px;
+    /* 다음 영역 붙이기 해제 */
+    clear: both;
+}

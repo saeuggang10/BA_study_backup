@@ -1,0 +1,72 @@
+/* Font 설정 */
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'LeeSeoyun', sans-serif;
+    text-align: center;
+}
+
+h3{
+    font-size: xx-large;
+}
+
+h5{
+    font-size: large;
+}
+
+/* 태그 꾸미기 */
+.main {
+    /* MainApp으로 바로가기 버튼 꾸미기 */
+    background-color: rgb(196, 255, 154);
+    padding:5px 10px;
+    margin:10px;
+    width: 250px;
+    text-align: center;
+    border-radius: 15px;
+    border:2px solid rgb(59, 117, 62);
+}
+.main:hover {
+    /* MainApp으로 바로가기 버튼 커서 올렸을 때 */
+    background-color: rgb(97, 165, 101);
+    color:white;
+}
+ul {
+    /* FrontApp 페이지 바로가기 겉모양 */
+    list-style-type: none;
+    background-color: rgb(251, 244, 164);
+    padding:10px;
+    margin:10px;
+    width: 250px;
+    border-radius: 15px;
+    border:2px solid rgb(92, 69, 50);
+}
+li {
+    /* FrontApp 페이지 바로가기 링크 꾸미기 */
+    /* li 태그 글자의 하단에 선 넣기 */
+    border-bottom: 1px dashed darkgray;
+    text-align: center;
+    padding:2px 0;
+}
+li:last-child {
+    /* li 마지막 태그는 하단에 선 빼기 */
+    border-bottom: none;
+}
+a {
+    /* a 태그들 글자 꾸미기 */
+    color:rgb(109, 109, 109);
+    /* a태그의 언더라인 없애기 */
+    text-decoration: none;
+    /* 열 태그를 블록태그로 변환하기 : 블록을 다 차지하게 */
+    display: block;
+}
+/* FrontApp 페이지 바로가기 링크 커서 올렸을 때 */
+li a:hover {
+    background-color: rgb(189, 159, 95);
+    color:white;
+    border-radius: 30px;
+}

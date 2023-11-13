@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>LOAD_VIEW</title>
+
+    <link href='{% static 'nonmodelapp/table.css' %}'
+          rel='stylesheet'
+          type='text/css'>
+
+    <script type="text/javascript"
+            src="{% static 'nonmodelapp/js/jquery-3.7.0.min.js' %}">
+    </script>
+    
+    <script type="text/javascript">
+        function goLoadView(dir){
+            location.href = '/nonmodel/' + dir;
+        }
+        
+        function goLoadViewJquery(dir){
+            $("#load_view").load('/nonmodel/' + dir);
+        }
+    </script>
+
+</head>
+<body>
+    <center>
+        <p>
+        <h3>비동기 방식</h3>
+        <h5>JQuery</h5>
+        </p>
+        <hr/>
+
+        <h3>동기 방식 버튼</h3>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadView('load_view1/')">load_view1</button><br>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadView('load_view2/')">load_view2</button><br>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadView('load_view3/')">load_view3</button>
+        <hr/>
+
+        <!--리스트 만들기-->
+        <h3>비동기 방식 버튼</h3>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadViewJquery('load_view1/')">load_view1</button><br>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadViewJquery('load_view2/')">load_view2</button><br>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadViewJquery('load_view3/')">load_view3</button><br>
+            <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLoadViewJquery('cart_list/')">cart_list</button>
+        <hr>
+
+        <h3>출력결과</h3>
+        <div id="load_view">
+            # 응답결과를 보여주는 영역입니다
+        </div>
+    </center>
+</body>
+</html>

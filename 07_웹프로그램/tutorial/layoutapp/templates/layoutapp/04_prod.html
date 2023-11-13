@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 목록 페이지</title>
+    <style>
+        body {
+            font-family: 'NanumSquare', sans-serif;
+        }
+    </style>
+    <!-- Bootstrap 스타일(css) 적용하기 -->
+    <link rel="stylesheet"
+    href="{% static 'frontapp/Bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- jQuery 자바스크립트(js) 적용하기 -->
+    <script type="text/javascript"
+        src="{% static 'frontapp/js/jquery-3.7.0.min.js' %}">
+    </script>
+    <script type="text/javascript">
+        function wish(){
+            fm = document.getElementById("fm");
+            alert("wish");
+        }
+        function cart(){
+            fm = document.getElementById("fm");
+            alert("cart");
+            //fm.action = "/layout/order/";
+            //fm.submit();
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container border" style="background-color:rgb(235, 235, 235); border-color: white">
+        <h1>Products</h1>
+        <br>
+        <div class="container">
+            <!-- row, col 그리드 사용 -->
+            <div class="row">
+            <!-- 1행 1열 상품 -->
+            <div class="col-4">
+                <!-- 카드 기능 body, title, text-->
+                <div class="card">
+                <img src="/static/layoutapp/images/camera.png">
+                <div class="card-body">
+                    <h5 class="card-title">prod1</h5>
+                    <p class="card-text">상품 설명하는 곳</p>
+                    <form id="fm" name="fm" method="post" action="#">
+                        {% csrf_token %}
+                        <input class="btn-3d yellow" type="button" value="wish" onclick="wish()">
+                        <select name="cartprod"
+                                style="width: 50px; height: 25px;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <input class="btn-3d yellow" type="button" value="cart" onclick="cart()">
+                    </form>
+                </div>
+                </div>
+            </div>
+            <!-- 1행 2열 상품 -->
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/layoutapp/images/camera.png">
+                <div class="card-body">
+                    <h5 class="card-title">prod2</h5>
+                    <p class="card-text">상품 설명하는 곳</p>
+                    <a class="btn btn-outline-dark" href="">상품상세보기</a>
+                </div>
+                </div>
+            </div>
+            <!-- 1행 3열 상품 -->
+            <div class="col-4">
+                <div class="card">
+                <img src="/static/layoutapp/images/camera.png">
+                <div class="card-body">
+                    <h5 class="card-title">prod3</h5>
+                    <p class="card-text">상품 설명하는 곳</p>
+                    <a class="btn btn-outline-dark" href="">상품상세보기</a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <br>
+            <!-- 2행 -->
+            <div class="row">
+            <!-- 2행 1열 상품 -->
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/layoutapp/images/camera.png">
+                <div class="card-body">
+                    <h5 class="card-title">prod4</h5>
+                    <p class="card-text">상품 설명하는 곳</p>
+                    <a class="btn btn-outline-dark" href="">상품상세보기</a>
+                </div>
+                </div>
+            </div>
+            <!-- 2행 2열 상품 -->
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/layoutapp/images/camera.png">
+                <div class="card-body">
+                    <h5 class="card-title">prod4</h5>
+                    <p class="card-text">상품 설명하는 곳</p>
+                    <a class="btn btn-outline-dark" href="">상품상세보기</a>
+                </div>
+                </div>
+            </div>
+            <!-- 2행 3열 상품 -->
+            <div class="col-4">
+                <div class="card">
+                    <img src="/static/layoutapp/images/camera.png">
+                <div class="card-body">
+                    <h5 class="card-title">prod4</h5>
+                    <p class="card-text">상품 설명하는 곳</p>
+                    <a class="btn btn-outline-dark" href="">상품상세보기</a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <br>
+        </div>
+        <br>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="{% static 'frontapp/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

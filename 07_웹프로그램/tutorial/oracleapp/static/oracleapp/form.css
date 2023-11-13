@@ -1,0 +1,65 @@
+/* Font 설정 */
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'LeeSeoyun', sans-serif;
+    text-align: center;
+}
+
+h3{
+    font-size: xx-large;
+}
+
+h5{
+    font-size: large;
+}
+
+/* 입력창 꾸미기 + 액션 */
+input[type=text]{
+    width: auto;
+    transition: width 0.4s ease-in-out;
+    padding: 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid rgb(73, 104, 122);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 10px;
+}
+
+input[type=text]:focus {
+    /* background-color: rgba(150,211,250,0.3); */
+    border: 2px solid rgb(119,168,199);
+    outline: 4px solid rgba(119,168,199,0.4);
+    width: 60%;
+}
+
+/* 참고사항 */
+div.valid-feedback{
+    font-size: small;
+    color: rgb(38, 85, 240);
+}
+
+/* 버튼 꾸미기 */
+button{
+    font-size: 18px;
+}
+.btn, .btn-two {
+    margin: 9px;
+  }
+.btn.yellow, .btn-two.yellow {background-color: #f0d264;}
+.rounded {
+    border-radius: 10px;
+  }
+.btn:active {
+    /* box-shadow: inset -1.3rem -1.1rem 2.4rem  #ffffff, inset 1.3rem 1.4rem 1.8rem #bae695; */
+    margin-left: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}

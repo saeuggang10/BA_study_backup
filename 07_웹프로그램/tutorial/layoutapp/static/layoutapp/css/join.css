@@ -1,0 +1,38 @@
+form{
+    width : 800px;
+    margin: auto;
+    background-color: aliceblue;
+    border: 1px blue solid;
+    border-radius: 10px;
+}
+form legend {
+  font-size: 20px;
+  text-align: center;
+}
+form div span {
+  font-size: 13px;
+  color: rgb(0, 60, 255);
+  font-style: italic;
+}
+form div.btn {
+  text-align: center;
+  float: right;
+}
+
+form h3{
+    text-align: center;
+}
+
+form div label{
+    text-align: center;
+    width: 100px;
+    margin: auto;
+}
+form div input{
+    text-align: center;
+}
+
+form div.d_addr input{
+    width: auto;
+    margin: auto;
+}

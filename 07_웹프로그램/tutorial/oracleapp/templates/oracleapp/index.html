@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OracleAPP</title>
+
+    <link rel="stylesheet"
+          href="{% static 'oracleapp/index.css' %}"
+          type="text/css">
+</head>
+<body>
+    <center>
+        <p>
+            <h3>MainApp</h3>
+            <a class="main" href="/">MainApp으로 바로가기</a>
+        </p>
+        <hr>
+        <h3>DataBase</h3>
+            <ul>
+                <li><a href="/oracle/mem_list/">01_mem_list 바로가기</a></li>
+                <li><a href="/oracle/cart_list/">02_cart_list 바로가기</a></li>
+                <li><a href="/oracle/lprod_list/">03_lprod_list 바로가기</a></li>
+                <li><a href="/oracle/prod_list/">04_prod_list 바로가기</a></li>
+            </ul>
+            <br>
+        <hr>
+        <h3>Join</h3>
+            <ul>
+                <li><a href="/oracle/cart_mem_list/">01_cart_mem_list 바로가기</a></li>
+                <li><a href="/oracle/cart_mem_prod_list/">02_cart_mem_prod_list 바로가기</a></li>
+            </ul>
+            <br>
+        <hr>
+        <h3>Product</h3>
+            <ul>
+                <li><a href="/oracle/product/">01_product 바로가기</a></li>
+                <li><a href="/oracle/product2/">02_product_강사님 바로가기</a></li>
+            </ul>
+            <br>
+    </center>
+</body>
+</html>

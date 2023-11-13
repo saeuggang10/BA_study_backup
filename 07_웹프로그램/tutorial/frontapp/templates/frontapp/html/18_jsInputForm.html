@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>18_JSINPUTFORM</title>
+    
+    <script type="text/javascript">
+        // 로그인 버튼 함수
+        function goLogin(){
+            //확인 : 경고창 열기
+            //alert('호출됨');
+
+            /* form태그 사이 작성한 모든 접근 권한 받아오기 */
+            fm=document.getElementById("fm");
+            // form태그 내부의 name이 mem_id인 value의 값을 가져와라
+            // alert(fm.mem_id.value);
+            // alert(fm.mem_pass.value);
+
+            /* if문 */
+            mem_id = fm.mem_id.value
+            if(mem_id == ""){
+                alert('아이디를 입력해 주세요');
+                fm.mem_id.focus(); //커서위치 지정
+                return //현재 if문이 처리될 때까지 아래실행 안되게 멈추란 얘기
+            }
+            mem_pass = fm.mem_pass.value
+            if(mem_pass == ""){
+                alert('패스워드를 입력해 주세요');
+                fm.mem_pass.focus(); //커서위치 지정
+                return
+            }
+    
+            /* post방식으로 전송하기 */
+            fm.action = '/front/19_login/'; //데이터를 전송 또는 이동할 url 지정 (지금 직접 지정했음으로 input에 쓰여있는건 덮어씌워짐)
+            fm.submit();
+        }
+
+        //get방식
+        function goLogin_get(){
+            fm = document.getElementById("fm");
+            mem_id = fm.mem_id.value;
+            mem_pass = fm.mem_pass.value;
+
+            url = '/front/19_login/'
+            url += '?mem_id=' + mem_id;
+            url += '&mem_pass=' + mem_pass;
+
+            location.href = url; //해석:위치를 url로 보내라
+        }
+    </script>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        jsInputForm페이지 입니다
+    </p>
+    <hr/>
+    <form id='fm' name='fm' method='get' action="#">
+        {% csrf_token %} <!--페이지소스보기로 보면 자기들만의 값이 있다-->
+        <!-- input태그를 텍스트 박스라고 함.
+             대신 줄바꿈 없이 한줄입력만 가능
+             name에 같은 이름이 있으면 오류(충돌)가 남-->
+
+        아이디 : <input type="text" name='mem_id' value='a001'>
+        <!-- type='text' : 텍스트로 값을 받고자 할 때
+             name='' : 본인이 정의 / 보통 DB colname과 동일하게 저장
+             value='' : 속성 / 안써도 됨
+             입력된 값은 서버로 전송됨
+             데이터 전송시에는 딕셔너리 개념 적용 {key(name):value(value)} -->
+        <br/>
+        패스워드 : <input type="password" name='mem_pass' value="1357">
+        <!-- type='password' : 작성시 외부에서 볼 수 없도록 . 또는 *로 가림 -->
+        <br/>
+        <br/>
+        아이디 : <input type="text" name='mem_id2' value={{mem_id}}>
+        <br/>
+        패스워드 : <input type="password" name='mem_pass2' value={{mem_pass}}>
+        <hr/>
+
+        <!-- type="button" : 버튼
+             value : 버튼에 쓰여질 문자
+             onclick : js함수(head 태그 영역에 정의) 이름 정의 / 이벤트 발생함수-->
+        <input type="button" value="로그인-post" onclick="goLogin()">
+        <input type="button" value="로그인-get" onclick="goLogin_get()">
+    </form>
+</body>
+</html>

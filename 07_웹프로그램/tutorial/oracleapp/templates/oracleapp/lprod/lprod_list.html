@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>LPROD_LIST</title>
+
+    <link href="{% static 'oracleapp/table.css' %}"
+          rel='stylesheet'
+          type='text/css'>
+
+    <style>
+        #btn_1{
+            float: right;
+            margin-top: 0%;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function goLprod(){
+            location.href = '/oracle/lprod_insert_view/'
+        }
+    </script>
+
+</head>
+<body>
+    <h3>상품분류정보</h3>
+    <h5>목록</h5>
+
+    <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goLprod()">추가</button>
+    
+    <table>
+        <tr>
+           <th>순서</th>
+           <th>상품분류코드</th>
+           <th>상품분류명</th>
+        </tr>
+        {% for row in lprod_list %}
+        <tr class='col'>
+           <td>{{row.lprod_id}}</td>
+           <td><a href="/oracle/lprod_view/?lprod_gu={{row.lprod_gu}}">{{row.lprod_gu}}</a></td>
+           <td>{{row.lprod_nm}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

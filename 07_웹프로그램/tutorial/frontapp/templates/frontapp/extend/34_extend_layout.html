@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34_EXTEND_LAYOUT</title>
+
+    <link href={% static 'frontapp/css/main.css' %}
+        rel='stylesheet'
+        type='text/css'>
+
+</head>
+<body>
+    <!--상단-->
+    
+    {% include 'frontapp/inc/hearder.html' %}
+    
+    <!--카테고리 네이게이션 영역-->
+    
+    {% include 'frontapp/inc/nav.html' %}
+    
+    <!--본문-->
+    {% block content %}
+        hello world<br>
+        #이 곳에서의 내용은 외부 파일에서 정의됨
+    {% endblock%}
+
+    <!--하단-->
+    {% include 'frontapp/inc/footer.html' %}
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>MEMBER_VIEW</title>
+
+    <link rel="stylesheet"
+          href="{% static 'oracleapp/table.css' %}"
+          type="text/css">
+
+    <script type="text/javascript">
+        function goList(){
+            location.href="/oracle/mem_list/";
+        }
+
+        function goUpdateView(){
+            location.href="/oracle/mem_update_view/?mem_id={{mem_view.mem_id}}";
+        }
+
+        function goDelete(){
+            alert('Delete');
+        }
+    </script>
+
+</head>
+<body>
+    <h3>회원정보</h3>
+    <h5>상세조회</h5>
+    <table>
+        <tr>
+            <th>아이디</th>
+            <th>패스워드</th>
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+
+        <!-- Read -->
+        <tr class='col'>
+            <td>{{mem_view.mem_id}}</td>
+            <td>{{mem_view.mem_pass}}</td>
+            <td>{{mem_view.mem_name}}</td>
+            <td>{{mem_view.mem_add1}}</td>
+        </tr>
+    </table>
+    <hr>
+    <!-- 버튼 -->
+    <button type="button" class="btn-two yellow rounded" onclick="goList()">목록</button>
+    <button type="button" class="btn-two yellow rounded" onclick="goUpdateView()">수정</button>
+    <button type="button" class="btn-two yellow rounded" onclick="goDelete()">탈퇴</button>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* Font 설정 */
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'LeeSeoyun', sans-serif;
+    text-align: center;
+}
+
+h3{
+    font-size: xx-large;
+}
+h5{
+    font-size: large;
+}
+
+/* 태그 꾸미기 */
+table{
+    border: 1px;
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td{
+    padding: 8px;
+    text-align: center;
+    border: 1px solid black;
+}
+/* 마우스가 위에 올라간다면 */
+tr.col:hover{
+    background-color: rgba(255, 255, 185, 0.438);
+}
+tr.col td:hover{
+    background-color: rgba(255, 255, 110, 0.5);
+}
+td{
+    width: auto;
+}
+
+/* 버튼 */
+button{
+    font-size: 18px;
+}
+.btn, .btn-two {
+    margin: 9px;
+  }
+.btn.yellow, .btn-two.yellow {background-color: #f0d264;}
+.rounded {
+    border-radius: 10px;
+  }
+.btn:active {
+    /* box-shadow: inset -1.3rem -1.1rem 2.4rem  #ffffff, inset 1.3rem 1.4rem 1.8rem #bae695; */
+    margin-left: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}

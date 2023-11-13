@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEM_LIST</title>
+
+    <link href="/static/secondapp/css/table.css"
+          rel="stylesheet"
+          type="text/css">
+
+</head>
+<body>
+    <h4>SecondApp-Index</h4>
+    <p>
+        <a href='/'>Secondapp_index 바로가기</a>
+    </p>
+    <hr/>
+    <table>
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>생일</th>
+        </tr>
+        {% for val in mem_lis %}
+        <tr>
+            <td>{{val.mem_id}}</td>
+            <td>{{val.mem_name}}</td>
+            <td>{{val.mem_age}}</td>
+            <td>{{val.mem_bir}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

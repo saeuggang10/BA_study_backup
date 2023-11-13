@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3조 페이지</title>
+    <link rel="icon" href="/static/layoutapp/images/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'NanumSquare', sans-serif;
+        }
+        #header {
+            display: inline;
+        }
+        #logo {
+            margin:20px 50px;
+            float:left;
+        }
+        #nav {
+            background-color: rgb(169, 169, 169);
+            padding:10px;
+            margin-bottom: 20px;
+            text-align: center;
+            clear: both;
+        }
+        #nav a {
+            text-decoration: none;
+            margin:30px;
+            color: white;
+            font-size: 18px;
+        }
+        #navs {
+            display:inline;
+        }
+        #search {
+            margin:45px;
+            float:right;
+        }
+        #searchbar {
+            color:rgb(130, 130, 130);
+            border:none;
+            background-color: rgb(215, 215, 215);
+            padding:8px;
+            width: 250px;
+            border-radius: 5px;
+            font-family: 'NanumSquare', sans-serif;
+        }
+        #searchbt {
+            padding: 5px 15px;
+            background-color: rgb(97, 97, 97);
+            color:white;
+            border-radius: 5px;
+        }
+        #left {
+            width: 75%;
+            float:left;
+        }
+        #right {
+            text-align: center;
+            width: 25%;
+            float:left;
+        }
+        #footer {
+            text-align: center;
+            clear:both;
+        }
+        #loginbt {
+            text-decoration: none;
+            font-size: 30px;
+            background:rgb(0, 0, 0);
+            color: #ffffff;
+            z-index: 1;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            padding: 20px 70px;
+            margin-bottom: 80px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        #loginbt:after {
+            border-radius: 15px;
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            direction: rtl;
+            z-index: -1;
+            background: #e0e5ec;
+            transition: all 0.3s ease;
+        }
+        #loginbt:hover {
+            border-radius: 15px;
+            color: #000;
+        }
+        #loginbt:hover:after {
+            border-radius: 15px;
+            left: auto;
+            right: 0;
+            width: 100%;
+        }
+        #loginbt:active {
+            top: 2px;
+        }
+        #ifcart::-webkit-scrollbar {
+            display: none;
+        }
+        #nmcart {
+            font-size: large;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: rgb(188, 188, 188);
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 영역 (로고와 상품 검색)-->
+    <div id="header">
+        <div id="logo">
+            <img src="/static/layoutapp/images/logo.png" width="80" height="80">
+        </div>
+        <div id="search">
+            <input id="searchbar" type="text" name="search" value="" placeholder="검색어를 입력해주세요.">
+            <span id="searchbt">검색</span>
+        </div>
+        
+    </div>
+
+    <!-- 카테고리-네비게이션 영역 -->
+    <div id="nav">
+        <a id="navs"href="/layout/login/">로그인</a>
+        <a id="navs"href="/layout/join/">회원가입</a>
+        <a id="navs"href="/layout/prod/">상품목록</a>
+        <a id="navs"href="/layout/order/">상품주문</a>
+        <a id="navs"href="/layout/cart/">장바구니</a>
+    </div><br>
+    
+    <!-- 좌측 상품 목록 iframe -->
+    <div id="left">
+        <iframe src="/layout/prod/"
+        width="100%" height="1050px"
+        frameborder="0"></iframe>
+    </div>
+
+    <!-- 우측 상단 로그인 버튼 -->
+    <!-- 우측 중간 나의 장바구니 -->
+    <div id="right">
+        <a id="loginbt" href="/layout/login/">로그인</a><br>
+        <span id="nmcart">장바구니</span><br>
+        <iframe id="ifcart" src="/layout/cart/"
+        width="80%" height="300px"
+        frameborder="0"></iframe>
+    </div>
+    
+
+    
+
+    <!-- 하단 영역 -->
+    <div id="footer">
+        <p>3조의 메인 페이지 입니다 ^^</p>
+    </div>
+</body>
+</html>

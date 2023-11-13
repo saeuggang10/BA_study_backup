@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>CART_VIEW</title>
+
+    <link href='{% static 'oracleapp/table.css' %}'
+          rel='stylesheet'
+          type='text/css'>
+
+    <script type="text/javascript">
+        function goList(){
+            location.href="/oracle/cart_list/";
+        }
+
+        function goUpdateView(){
+            url = '/oracle/cart_update_view/';
+            url += '?cart_no={{cart_no}}';
+            url += '&cart_prod={{cart_prod}}';
+            
+            location.href = url
+        }
+
+        function goDelete(){
+            url = '/oracle/cart_delete/';
+            url += '?cart_no={{cart_no}}';
+            url += '&cart_prod={{cart_prod}}';
+            
+            location.href = url
+        }
+    </script>
+
+</head>
+<body>
+    <h3>주문정보</h3>
+    <h5>상세조회</h5>
+
+    <table>
+        <tr>
+            <th>회원ID</th>
+            <th>주문번호</th>
+            <th>상품코드</th>
+            <th>수량</th>
+        </tr>
+        <tr class='col'>
+           <td>{{cart_view.cart_member}}</td>
+           <td>{{cart_view.cart_no}}</td>
+           <td>{{cart_view.cart_prod}}</td>
+           <td>{{cart_view.cart_qty}}</td>
+        </tr>
+    </table>
+    <button type="button" class="btn-two yellow rounded" onclick="goList()">목록</button>
+    <button type="button" class="btn-two yellow rounded" onclick="goUpdateView()">수정</button>
+    <button type="button" class="btn-two yellow rounded" onclick="goDelete()">삭제</button>
+</body>
+</html>

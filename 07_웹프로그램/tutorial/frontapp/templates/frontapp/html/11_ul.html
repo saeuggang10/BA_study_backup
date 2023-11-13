@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_UL</title>
+
+    <style>
+        ul{
+            /* 스타일 없애기 */
+            /*list-style-type: None;*/
+
+            /*채워진 사각 표시*/
+            /*list-style-type: square;*/
+
+            /*채워진 원 표시 : default*/
+            list-style-type: disc;
+        }
+        ul.menu li{
+            /* 수직 목록 -> 수평 목록 */
+            display: inline;
+        }
+        /*class 이름이 menu인 ul태그의 모든 li태그 안에 있는 모든 a태그 지정*/
+        ul.menu li a{
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none; /* 밑줄 그어지는거 삭제 */
+            border-radius: 4px 4px 0px 0px; /* 모서리가 둥근 사각형 테두리*/
+        }
+    </style>
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        11_ul페이지 입니다
+    </p>
+    <ht/>
+    <p>
+        <h5>UL</h5>
+        <ul>
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ul>
+    </p>
+    <p>
+        <h5>OL</h5>
+        <ol>
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ol>
+        <ol type="1"> <!--defualt-->
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ol>
+        <ol type="A">
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ol>
+        <ol type="a">
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ol>
+        <ol type="I"> <!--로마자표현-->
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ol>
+        <ol type="i">
+            <li>커피</li>
+            <li>차</li>
+            <li>우유</li>
+        </ol>
+    </p>
+    <!-- DL 종류 -->
+    <p>
+        <h5>DL(목록) / DT(제목) / DD(설명)</h5>
+        <dl>
+            <dt>커피</dt>
+                <dd>- 아메리카노, 밀크라뗴, 바닐라 라떼</dd>
+            <dt>차</dt>
+                <dd>- 유자차, 대추차, 홍삼차</dd>
+            <dt>그래프 제목</dt>
+                <img src="/static/frontapp/images/dog.jpg" width="500" height="500">
+                <dd>그래프에 대한 설명</dd>
+        </dl>
+    </p>
+    <hr/>
+    <h5>ul표식 중첩사용</h5>
+    <p>
+        <ul>
+            <li>커피
+                <ul>
+                    <li>아메리카노</li>
+                    <li>밀크라떼</li>
+                    <li>바닐라 라떼</li>
+                        <ul>
+                            <li>고구마 라떼</li>
+                        </ul>
+                </ul>
+            </li>
+            <li>차
+                <ul>
+                    <li>유자차</li>
+                    <li>대추차</li>
+                    <li>홍삼차</li>
+                </ul>
+            </li>
+            <li>우유</li>
+        </ul>
+    </p>
+    <hr/>
+    <ul class="menu">
+        <li><a href='/front/'>커피</a></li>
+        <li><a href='/front/'>차</a></li>
+        <li><a href='/front/'>음료</a></li>
+        <li><a href='/front/'>기타</a></li>
+    </ul>
+</body>
+</html>

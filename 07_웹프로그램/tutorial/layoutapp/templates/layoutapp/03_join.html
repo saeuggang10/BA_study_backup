@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>03_JOIN</title>
+
+    <link href="/static/frontapp/bootstrap/css/bootstrap.min.css"
+            rel='stylesheet'
+            type='text/css'>
+
+    <script type="text/javascrip"
+        src="/static/frontapp/js/jquery-3.7.0.min.js">
+    </script>
+
+    <link href='/static/layoutapp/css/join2.css'
+            rel='stylesheet'
+            type='text/css'>
+
+    <script type="text/javascript">
+        function maxLengthChk(object){
+            if (object.value.length > object.maxLength){
+                object.value = object.value.slice(0, object.maxLength);
+            }    
+        }
+    </script>
+
+    <script type="text/javascript">
+        (() => {
+            'use strict'
+          
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+          
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+              form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+          
+                form.classList.add('was-validated')
+              }, false)
+            })
+          })()
+    </script>
+
+
+</head>
+<body>
+    <form action="#" id="join_privacy" method="get">
+        <fieldset>
+            <legend>개인정보</legend>
+            <div class="d_name">
+                <label for="l_name">이름</label><span class='require'> * </span>
+                <input type="text" name="name" id="l_name" required>
+            </div>
+
+            <div class="d_sex">
+                <label for="l_sex">성별</label><span class='require'> * </span>
+                <input type="radio" name="sex" value="남자" required> 남자
+                <input type="radio" name="sex" value="여자" required> 여자
+            </div>
+
+            <div class="d_age">
+                <label for="l_age">나이</label><span class='require'> * </span>
+                <input type="text" name='age' id="l_age" maxlength="3" size="4" oninput="maxLengthChk(this)" required>
+            </div>
+
+            <div class="d_regno">
+                <label for="l_regno">주민등록번호</label><span class='require'> * </span>
+                <input type="text" name="regno" id="l_regno" maxlength="6" size="10" oninput="maxLengthChk(this)" required>
+                <label for="">-</label>
+                <input type="password" name="regno2" maxlength="7" size="10" oninput="maxLengthChk(this)" required>
+            </div>
+
+            <div class="d_bir">
+                <label for="l_bir">생일</label><span class='require'> * </span>
+                <input type="date" name="bir" id="l_bir" value="2023-07-11" required>
+            </div>
+
+            <div class="d_tel">
+                <label for="l_tel">전화번호</label><span class='require'> * </span>
+                <input type="tel" name="tel" id="l_tel" placeholder="010-1234-5678"
+                        maxlength="13" oninput="maxLengthChk(this)" required><br>
+                <span class="err_tel">* "-"를 넣어서 입력해주세요</span>
+            </div>
+
+            <div class="d_email">
+                <label for="l_email">이메일</label><span class='require'> * </span>
+                <input type="email" name="email" id="l_email" required>@
+                <input type="text" name="email2" required>
+                <select name="select_email">
+                    <option value="">직접입력</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="gmail.com">gmail.com</option>
+                </select>
+            </div>
+
+            <div class="d_addr">
+                <label>주소</label><span class='require'> * </span>
+                <input type="text" id="zipcode" placeholder="우편번호" required>
+                <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+                <input type="text" id="addr1" placeholder="도로명주소" required><br>
+                <input type="text" id="addr2" placeholder="상세주소" required>
+            </div>
+            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+            <script>
+                function execDaumPostcode() {
+                new daum.Postcode( {
+                    oncomplete: function(data) {
+                    document.getElementById('zipcode').value = data.zonecode;
+                    document.getElementById('addr1').value = data.address;
+                    }
+                } ).open();
+                document.getElementById('addr2').focus();
+                }
+            </script>
+        </fieldset>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <form action="#" id="join_idpw" method="get">
+        <legend>로그인정보</legend>
+        <div class="d_id">
+            <label for="l_id">아이디</label><span class='require'> * </span>
+            <input type="text" name="id" id="l_id" minlength="4" maxlength="15" oninput="maxLengthChk(this)" required><br>
+            <span class="err_id">* 4 ~ 15자리 이내로 입력해주세요</span>
+        </div>
+
+        <div class="d_pw">
+            <label for="l_pw">비밀번호</label><span class='require'> * </span>
+            <input type="password" name="pw" id="l_pw" minlength="8" maxlength="20" oninput="maxLengthChk(this)" required><br>
+            <span class="err_pw">* 8 ~ 20자리 이내로 입력해주세요</span>
+        </div>
+
+        <div class="d_pw_chk">
+            <label for="l_pw_chk">비밀번호 확인</label><span class='require'> * </span>
+            <input type="password" name="pw_chk" id="l_pw_chk" minlength="8" maxlength="20" oninput="maxLengthChk(this)" required>
+        </div>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <form action="#" id="join_maketting" method="get">
+        <legend>기타정보</legend>
+        <div class="d_root">
+            <label>가입경로</label>
+            <input type="checkbox" name="root" value="SNS">SNS 홍보
+            <input type="checkbox" name="root" value="SNS">지인추천
+            <input type="checkbox" name="root" value="SNS">인터넷광고
+        </div>
+        <div class="d_like">
+            <label>취미</label>
+            <input type="text">
+            <select name="select_like">
+                <option value="">직접입력</option>
+                <option value="운동">운동</option>
+                <option value="바둑">바둑</option>
+                <option value="노래">노래</option>
+                <option value="독서">독서</option>
+            </select>
+        </div>
+        <div class="btn">
+            <input type="button" value="회원가입" onclick="Submit()">
+        </div>
+    </form>
+    <script type="text/javascript"
+            src=/static/frontapp/bootstrap/js/bootstrap.bundle.min.js>
+    </script>
+</body>
+</html>

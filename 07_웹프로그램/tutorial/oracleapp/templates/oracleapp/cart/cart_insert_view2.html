@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>CART_INSERT_VIEW</title>
+
+    <link href="{% static 'oracleapp/form.css' %}"
+          rel='stylesheet'
+          type='text/css'>
+
+    <script type="text/javascript">
+        function goUpdate(){
+            fm=document.getElementById("fm");
+
+            fm.action = '/oracle/cart_insert/';
+            fm.submit();
+        }
+    </script>
+
+    <style>
+        input[type=text]{
+            width: auto;
+            transition: width 0.4s ease-in-out;
+            padding: 5px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid rgb(73, 104, 122);
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        input[type=text]:focus {
+            /* background-color: rgba(150,211,250,0.3); */
+            border: 2px solid rgb(119,168,199);
+            outline: 4px solid rgba(119,168,199,0.4);
+            width: 100%;
+          }
+    </style>
+
+</head>
+<body>
+    <h3>주문정보</h3>
+    <h5>주문</h5>
+
+    <form id="fm" method="post" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="col-md-4">
+            <label for="l_mem">회원ID</label>
+            <input type="text" name="cart_member" class="form-control" value="a001" required>
+        </div>
+        <div class="col-md-4">
+            <label for="l_no">주문번호</label>
+            <input type="text" name="cart_no" class="form-control" value="2023071300001" required>
+            <div class="valid-feedback">
+                2023071300001~ 입력해주세요
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="l_prod">상품코드</label>
+            <input type="text" name="cart_prod" class="form-control" value="P302000004" required>
+            <div class="valid-feedback">
+                P32000004~ 입력해주세요
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="l_qty">수량</label>
+            <input type="text" name="cart_qty" class="form-control" value="13579" required>
+        </div>
+        <div class="col-12">
+          <button class="btn-two yellow rounded" type="button" onclick="goUpdate()">저장</button>
+        </div>
+      </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>JSINPUTFORM</title>
+
+    <script type="text/javascript">
+        function goLogin_post(){
+            fm = document.getElementById('fm');
+
+            fm.action = '/third/login/';
+            fm.submit();
+        }
+
+        function goLogin_get(){
+            fm = document.getElementById('fm');
+
+            email = fm.mem_mail.value;
+            age = fm.mem_age.value;
+            pass = fm.mem_pass.value;
+
+            url = '/third/login/';
+            url += '?mem_mail=' + email;
+            url += '&mem_age=' + age;
+            url += '&mem_pass=' + pass;
+
+            location.href = url;
+        }
+    </script>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/third/'>[ThirdApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        jsinputform페이지 입니다
+    </p>
+    <hr/>
+    <form id="fm" action="#" method="get">
+        {% csrf_token %}
+        이메일 : <input type="email" name="mem_mail" value="test@test.co.kr">
+        나이 : <input type="number" name="mem_age" value="18">
+        패스워드 : <input type="password" name="mem_pass" value="asdf1234">
+        <br/>
+        <input type="button" value="POST방식" onclick="goLogin_post()">
+        <input type="button" value="GET방식" onclick="goLogin_get()">
+    </form>
+</body>
+</html>

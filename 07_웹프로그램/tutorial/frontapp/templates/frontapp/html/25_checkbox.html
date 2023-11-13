@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>25_CHECKBOX2</title>
+
+    <script type="text/javascript">
+        function goSelect(){
+            location.href = '/front/25_checkbox2/';
+        }
+
+        function allReload(){
+            location.reload();
+        }
+
+        function checkboxReload(){
+            fm = document.getElementById('fm');
+
+            for(i=0; i<fm.mem_addr.length; i++){
+                if(fm.mem_addr[i].checked == true){
+                    fm.mem_addr[i].checked = false;
+                }
+            }
+        }
+
+        function initCheckBox_lis(t_lis){
+            fm = document.getElementById('fm');
+
+            for(i=0; i<t_lis.length; i++){
+                for(j=0; j<fm.mem_addr.length; j++){
+                    if(t_lis[i] == fm.mem_addr[j].value){
+                        fm.mem_addr[j].checked = true;
+                    }
+                }
+            }
+        }
+
+        function initCheckBox_str(t_lis){
+            t_lis = t_lis.split(',');
+            fm = document.getElementById('fm');
+
+            for(i=0; i<t_lis.length; i++){
+                for(j=0; j<fm.mem_addr.length; j++){
+                    if(t_lis[i] == fm.mem_addr[j].value){
+                        fm.mem_addr[j].checked = true;
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body onload='initCheckBox_lis({{mem_addr_lis}});'> <!--initCheckBox-->
+    * 지역 : {{mem_addr}}
+    <br>
+    * 지역_리스트 : {{mem_addr_lis}}
+    <br>
+    * 지역_문자열 : {{str_list}}
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        25_checkbox2페이지 입니다
+    </p>
+    <hr/>
+    <form id='fm' method='post' action="#">
+        {% csrf_token %}
+        temp : <input type="text" name='test'>
+        * 지역선택 : 
+        서울<input type="checkbox" name="mem_addr" value="서울">
+        부산<input type="checkbox" name="mem_addr" value="부산">
+        광주<input type="checkbox" name="mem_addr" value="광주">
+        대전<input type="checkbox" name="mem_addr" value="대전">
+        <hr/>
+        <!--input태그를 이용해 만드는 경우 form태그 안에 넣음 / value에 버튼 이름 작성-->
+        <input type="button" value="검색하기" onclick="goSelect()">
+        <!--일반버튼 : 어디서든 만들 수 있음 / 태그 여닫기 필요 / 태그 사이에 버튼 이름 작성-->
+        <button onclick="goSelect()">검색하기(b)</button>
+        <br>
+    </form>
+    <!-- 원래 형태 : button type='submit' name='' 라서 submit처럼 action 주소로 reload됨으로 form태그 밖으로 뺴줘야 함-->
+    <button onclick="allReload()">전체 초기화</button>
+    <button onclick="checkboxReload()">체크박스 초기화</button>
+</body>
+</html>

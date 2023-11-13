@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NonmodelAPP</title>
+
+    <link rel="stylesheet"
+          href="{% static 'nonmodelapp/index.css' %}"
+          type="text/css">
+</head>
+<body>
+    <center>
+        <p>
+            <h3>MainApp</h3>
+            <a class="main" href="/">MainApp으로 바로가기</a>
+        </p>
+        <hr>
+        <h3>페이징 처리하기</h3>
+            <ul>
+                <li><a href="/nonmodel/cart_list/">01_cart_list 바로가기</a></li>
+            </ul>
+            <br>
+        <hr>
+        <h3>Join</h3>
+            <ul>
+                <li><a href="/oracle/cart_mem_list/">01_cart_mem_list 바로가기</a></li>
+                <li><a href="/oracle/cart_mem_prod_list/">02_cart_mem_prod_list 바로가기</a></li>
+            </ul>
+        <hr>
+        <h3>비동기</h3>
+            <ul>
+                <li><a href="/nonmodel/load_view/">01_load_view 바로가기</a></li>
+            </ul>
+    </center>
+</body>
+</html>

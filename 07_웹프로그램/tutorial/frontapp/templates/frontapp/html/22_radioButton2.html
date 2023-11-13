@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>22_RADIOBUTTON2</title>
+
+    <script type="text/javascript">
+        function goSubmit(){
+            fm = document.getElementById("fm");
+
+            addr = fm.mem_addr.value;
+            if(addr == ""){
+                alert('지역을 입력해 주세요!');
+                fm.mem_addr.focus();
+            } else{
+                fm.action = '/front/23_radio2/';
+                fm.submit();
+            }
+        }
+        
+        function radioReload(){
+            fm = document.getElementById("fm");
+            addr1 = fm.mem_addr1.value;
+            
+            for(i=0; i<fm.mem_addr1.length; i++){
+                if(fm.mem_addr1[i].checked == true){
+                    fm.mem_addr1[i].checked = false;
+                    break;
+                }
+            }
+        }
+        
+        function allReset(){
+            location.reload();
+        }
+
+        function initRadio(mem_addr1){
+            fm = document.getElementById('fm');
+
+            for(i=0; i<fm.mem_addr1.length; i++){
+                if(fm.mem_addr1[i].value == mem_addr1){
+                    fm.mem_addr1[i].checked = true;
+                    break;
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body onload="initRadio('{{mem_addr1}}');">
+    <h4>FrontApp : index</h4>
+    
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        22_radioButton2페이지 입니다
+    </p>
+    <hr/>
+    <form id="fm" action="/front/21_radio/" method="post">
+        {% csrf_token %}
+        * 주소 : <input type="text" name="mem_addr" value="{{mem_addr}}">
+        <br/>
+        * 지역선택 : 
+        서울 <input type="radio" name="mem_addr1" value="서울">
+        부산 <input type="radio" name="mem_addr1" value="부산">
+        광주 <input type="radio" name="mem_addr1" value="광주">
+        대전 <input type="radio" name="mem_addr1" value="대전">
+        <hr/>
+        <input type="button" value="전송하기" onclick="goSubmit()">
+        <input type="button" value="Radio버튼 초기화" onclick="radioReload()">
+        <input type="button" value="전체 초기화" onclick="allReset()">
+        <input type="submit" value="바로전송">
+    </form>
+</body>
+</html>

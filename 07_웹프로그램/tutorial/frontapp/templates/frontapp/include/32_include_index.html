@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>32_INCLUDE_INDEX</title>
+
+    <link href={% static 'frontapp/css/main.css' %}
+        rel='stylesheet'
+        type='text/css'>
+
+</head>
+<body>
+    <!--상단-->
+    
+    {% include 'frontapp/inc/hearder.html' %}
+    
+    <!--카테고리 네이게이션 영역-->
+    
+    {% include 'frontapp/inc/nav.html' %}
+    
+    <!--본문-->
+    <div id='section1'>
+        <h3>공지사항</h3>
+        <ul>
+            <li>[필독] 금일 공지사항</li>
+            <li>[필독] 금일 공지사항</li>
+            <li>[필독] 금일 공지사항</li>
+            <li>[필독] 금일 공지사항</li>
+            <li>[필독] 금일 공지사항</li>
+            <li>[필독] 금일 공지사항</li>
+        </ul>
+    </div>
+    <div id='section2'>
+        <h3>질문/답변</h3>
+        <ul>
+            <li>[필독] 금일 질문 있습니다.</li>
+            <li>[필독] 금일 질문 있습니다.</li>
+            <li>[필독] 금일 질문 있습니다.</li>
+            <li>[필독] 금일 질문 있습니다.</li>
+            <li>[필독] 금일 질문 있습니다.</li>
+            <li>[필독] 금일 질문 있습니다.</li>
+        </ul>
+    </div>
+    <!--하단-->
+    
+    {% include 'frontapp/inc/footer.html' %}
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>CART_LIST</title>
+
+    <link href="{% static 'frontapp/bootstrap/css/bootstrap.min.css' %}"
+            rel='stylesheet'
+            type='text/css'>
+
+    <script type="text/javascrip"
+        src="{% static 'frontapp/js/jquery-3.7.0.min.js' %}">
+    </script>
+
+    <link href="{% static 'nonmodelapp/table.css' %}"
+          rel='stylesheet'
+          type='text/css'>
+
+    <script type="text/javascript">
+        function goCartView(cart_no, cart_prod){
+            url = '/oracle/cart_view/';
+            url += '?cart_no=' + cart_no;
+            url += '&cart_prod=' + cart_prod;
+
+            location.href = url;
+        }
+        function goCart(){
+            location.href = '/oracle/cart_insert_view/'
+        }
+    </script>
+
+    <style>
+        #btn_1{
+            float: right;
+            margin-top: 0%;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>주문정보</h3>
+    <h5>목록</h5>
+
+    <button type="button" id="btn_1" class="btn-two yellow rounded" onclick="goCart()">주문</button>
+
+    <table>
+        <tr>
+           <th>회원ID</th>
+           <th>주문번호</th>
+           <th>상품코드</th>
+           <th>수량</th>
+        </tr>
+        {% for row in cart_list %}
+        <tr class='col'>
+           <td>{{row.cart_member}}</td>
+           <td><a href="javascript:goCartView('{{row.cart_no}}','{{row.cart_prod}}');">
+                {{row.cart_no}}</a>
+           </td>
+           <!--<td><a href='/oracle/cart_view/?cart_no={{row.cart_no}}&cart_prod={{row.cart_prod}}'>{{row.cart_no}}</a></td>-->
+           <td>{{row.cart_prod}}</td>
+           <td>{{row.cart_qty}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!--페이징 처리-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+            <!--이전버튼-->
+            {% if is_prev %}
+            <li class="page-item">
+                <!--| add:"-10" -> start_page-10계산과 동일-->
+            <a class="page-link" href="/nonmodel/cart_list/?page={{start_page | add:"-10"}}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+            {% endif %}
+            
+            <!--페이지 번호 처리-->
+            </li>
+            {% for i in page_range%}
+                {% if i == now_page %}
+                <strong><li class="page-item"><a class="page-link" href="#">{{i}}</a></li></strong>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="/nonmodel/cart_list/?page={{i}}">{{i}}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            <!--다음버튼-->
+            {% if is_next %}
+            <li class="page-item">
+            <a class="page-link" href="/nonmodel/cart_list/?page={{start_page | add:"10"}}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <script type="text/javascript"
+        src={% static 'frontapp/bootstrap/js/bootstrap.bundle.min.js' %}>
+    </script>
+</body>
+</html>

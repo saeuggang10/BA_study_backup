@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>26_SELECTBOX</title>
+
+    <script type="text/javascript">
+        function selectOne(){
+            fm = document.getElementById('fm');
+
+            alert(fm.mem_addr_one.value);
+        }
+
+        function selectMulti_s(){
+            fm = document.getElementById('fm');
+            chk_bool = false;
+            for(i=0; i<fm.mem_addr_multi.length; i++){
+                if(fm.mem_addr_multi[i].selected == true){
+                    chk_bool=true;
+                }
+            }
+            if(chk_bool == false){
+                alert("한개이상 선택해 주세요");
+                return true;
+            }
+
+            fm.action = "/front/27_selectbox2/";
+            fm.submit();
+        }
+
+        function selectMulti_o(){
+            fm = document.getElementById('fm');
+            chk_bool = false;
+            for(i=0; i<fm.mem_addr_multi.options.length; i++){
+                if(fm.mem_addr_multi.options[i].selected == true){
+                    chk_bool=true;
+                }
+            }
+            if(chk_bool == false){
+                alert("한개이상 선택해 주세요");
+                return;
+            }
+
+            fm.action = "/front/27_selectbox2/";
+            fm.submit();
+        }
+    </script>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        26_selectbox페이지 입니다
+    </p>
+    <hr/>
+    <form action="#" id="fm" method="POST">
+        {% csrf_token %}
+        * 지역선택(1개만)
+        <select name="mem_addr_one"
+                style="width:100px; height: 50px;">
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="광주">광주</option>
+            <option value="대전">대전</option>
+        </select>
+        <hr>
+        * 지역선택(여러개)
+        <select name="mem_addr_multi"
+                style="width:100px; height: 100px;"
+                multiple>
+            <option value="서울">서울</option>
+            <option value="부산">부산</option>
+            <option value="광주">광주</option>
+            <option value="대전">대전</option>
+        </select>
+        <hr>
+        <input type="button" value="한 개 선택" onclick="selectOne()">
+        <input type="button" value="여러 개 선택(select)" onclick="selectMulti_s()">
+        <input type="button" value="여러 개 선택(option)" onclick="selectMulti_o()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>16_CSSTABLE</title>
+
+    <style>
+        table{
+            border: 1px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td{
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        /* 짝수 tr에만 색을 입힘*/
+        tr:nth-child(even){
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        16_cssTable페이지 입니다
+    </p>
+    <hr/>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>가나다</td>
+            <td>부산</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>라마바</td>
+            <td>서울</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>사아자</td>
+            <td>대전</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>차카타</td>
+            <td>춘천</td>
+        </tr>
+    </table>
+</body>
+</html>

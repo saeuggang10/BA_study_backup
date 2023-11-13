@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>MEMBER_UPDATE_VIEW</title>
+
+    <link rel="stylesheet"
+          href="{% static 'oracleapp/table.css' %}"
+          type="text/css">
+
+    <script type="text/javascript">
+        function goBack(){
+            history.go(-1);
+        }
+
+        function goUpdate(){
+            fm = document.getElementById('fm');
+            fm.action="/oracle/mem_update/";
+            fm.submit();
+        }
+    </script>
+
+</head>
+<body>
+    <form action="#" id="fm" method="post">
+    {% csrf_token %}
+    <!--mem_id(PK)를 화면에 보이지 않게 처리하는 법-->
+        <input type="hidden" name="mem_id" value="{{mem_view.mem_id}}">
+
+        <h3>회원정보</h3>
+        <h5>수정</h5>
+        <table>
+            <tr>
+                <th>아이디</th>
+                <th>패스워드</th>
+                <th>이름</th>
+                <th>주소</th>
+            </tr>
+
+            <!-- Read -->
+            <tr class='col'>
+                <td>{{mem_view.mem_id}}</td>
+                <td>
+                    <input type="text" name="mem_pass" value="{{mem_view.mem_pass}}">
+                </td>
+                <td>{{mem_view.mem_name}}</td>
+                <td>
+                    <input type="text" name="mem_add1" value="{{mem_view.mem_add1}}">
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </form>
+    <!-- 버튼 -->
+    <button type="button" class="btn-two yellow rounded" onclick="goBack()"><span>취소</span></button>
+    <button type="button" class="btn-two yellow rounded" onclick="goUpdate()">수정</button>
+</body>
+</html>

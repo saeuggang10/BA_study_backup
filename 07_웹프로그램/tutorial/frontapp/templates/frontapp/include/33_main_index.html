@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33_MAIN_INDEX</title>
+
+    <link href={% static 'frontapp/css/main.css' %}
+        rel='stylesheet'
+        type='text/css'>
+</head>
+<body>
+    {% include 'frontapp/inc/hearder.html' %}
+    {% include 'frontapp/inc/nav.html' %}
+    <h3>FirstApp</h3>
+    <p>
+        <!--
+            - href : url입력
+            - 첫번째 슬래시 : 127.0.0.1:8000 의미
+                           : root url이라고도 함
+            - 첫번째 슬래시 다음부터 url패턴 이름을 넣음
+            - 마지막에는 꼭 /넣기
+        -->
+        <a href="/first/">[FirstApp 바로가기]</a>
+    </p>
+
+    <h3>SecondApp</h3>
+    <p>
+        <a href="/second/">[SecondApp 바로가기]</a>
+    </p>
+
+    <h3>ThirdApp</h3>
+    <p>
+        <a href="/third/">[ThirdApp 바로가기]</a>
+    </p>
+
+    <h3>FrontApp</h3>
+    <p>
+        <a href="/front/">[FrontApp 바로가기]</a>
+    </p>
+    {% include 'frontapp/inc/footer.html' %}
+</body>
+</html>

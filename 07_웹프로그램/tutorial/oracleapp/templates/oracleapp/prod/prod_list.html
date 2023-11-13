@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>PROD_LIST</title>
+
+    <link href='{% static 'oracleapp/table.css' %}'
+          rel='stylesheet'
+          type='text/css'>
+          
+    <style>
+        #btn_1{
+            float: right;
+            margin-top: 0%;
+        }
+    </style>
+    
+</head>
+<body>
+    <h3>상품정보</h3>
+    <h5>목록</h5>
+
+    <table>
+        <tr>
+           <th>상품코드</th>
+           <th>상품명</th>
+           <th>상품분류코드</th>
+           <th>매입가격</th>
+           <th>소비자가격</th>
+           <th>판매가격</th>
+        </tr>
+        {% for row in prod_list %}
+        <tr class='col'>
+           <td><a href="/oracle/prod_view/?prod_id={{row.prod_id}}">{{row.prod_id}}</a></td>
+           <td>{{row.prod_name}}</td>
+           <td>{{row.prod_lgu}}</td>
+           <td>{{row.prod_cost}}</td>
+           <td>{{row.prod_price}}</td>
+           <td>{{row.prod_sale}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

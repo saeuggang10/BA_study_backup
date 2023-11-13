@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>MEMBER_LIST</title>
+
+    <link rel="stylesheet"
+          href="{% static 'oracleapp/table.css' %}"
+          type="text/css">
+
+    <style>
+        #btn_1{
+            float: right;
+            margin-top: 0%;
+            }
+    </style>
+
+</head>
+<body>
+    <h3>회원정보</h3>
+    <h5>목록</h5>
+    <table>
+        <tr>
+            <th>아이디</th>
+            <th>패스워드</th>
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+        {% for row in mem_list %}
+        <tr class="col">
+            <td>{{row.mem_id}}</td>
+            <td>{{row.mem_pass}}</td>
+            <td><a href="/oracle/mem_view/?mem_id={{row.mem_id}}">{{row.mem_name}}</a></td>
+            <td>{{row.mem_add1}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

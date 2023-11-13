@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+        fieldset {
+            margin-top:200px;
+            width: 350px;
+        }
+        .title {
+            font-size:xx-large;
+            text-align:center;s
+        }
+    </style>
+    <script type="text/javascript">
+      
+        function goLogin_post() {
+         
+            fm = document.getElementById("fm");
+        
+            mem_id = fm.mem_id.value;
+            mem_pass = fm.mem_pass.value;
+       
+            fm.action = "/layout/afterlogin/";
+            fm.submit();
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <!-- 로그인 폼 -->
+        <form id="fm" name="fm" method="post" action="#">
+            {% csrf_token %}
+            <br>
+            <fieldset>
+                <legend class="title"><b>LOGIN</b></legend>
+            
+                <br>
+                아이디 : <input type="text" name="mem_id" value="" placeholder="아이디"><br>
+                비밀번호 : <input type="password" name="mem_pass" value="" placeholder="비밀번호"><br><br>
+                <input type="checkbox" name="login_on" value="on">로그인 상태유지
+                <br><br>
+
+                <input id="bt" type="button" value="로그인" onclick="goLogin_post()">
+            </fieldset>
+
+            <!-- 회원가입 페이지 연결 -->
+            <a href="#">비밀번호찾기</a>
+            <a href="#">아이디찾기</a>
+            <a href="#">회원가입</a>
+        </form>
+    </center>
+</body>
+</html>

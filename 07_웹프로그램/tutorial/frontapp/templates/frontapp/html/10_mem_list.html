@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_MEM_LIST</title>
+
+    <style>
+        table{
+            border: 1px;
+            border-style: solid;
+            border-color: black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td{
+            padding: 15px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        th{
+            background-color: rgb(40, 108, 186);
+            color: aliceblue;
+        }
+    </style>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+
+    <table>
+        <tr>
+            <th width='100'>회원이름</th>
+            <th width='200'>주문일자</th>
+            <th width='500'>상품명</th>
+        </tr>
+
+        {% for val in mem_list %}
+        <tr>
+            <td>{{val.mem_name}}</td>
+            <td>{{val.cart_date}}</td>
+            <td>{{val.prod_name}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

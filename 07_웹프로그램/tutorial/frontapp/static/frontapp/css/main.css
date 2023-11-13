@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'LeeSeoyun', sans-serif;
+}
+
+h3{
+    padding-left: 30px;
+    /*text-align: center;*/
+}
+
+/* id=header */
+#header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+/* id=nav */
+#nav{
+    background-color: rgb(254, 239, 255);
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* id=section1 */
+#section1{
+    background-color: rgb(108, 219, 193);
+    color: white;
+    width: 50%;
+    /*다음 영역을 붙이기*/
+    float: left;
+}
+
+/* id=section2 */
+#section2{
+    background-color: rgb(255, 165, 181);
+    color: rgb(255, 255, 255);
+    width: 50%;
+    float: left;
+}
+
+/* id=footer */
+#footer{
+    background-color: rgb(203, 221, 221);
+    text-align: center;
+    padding: 5px;
+    /*다음 영역 붙이기 해제*/
+    clear: both;
+}

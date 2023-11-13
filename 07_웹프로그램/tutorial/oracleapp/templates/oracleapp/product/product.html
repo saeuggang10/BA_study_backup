@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>PRODUCT</title>
+
+    <link href="{% static 'oracleapp/form.css' %}"
+          rel='stylesheet'
+          type='text/css'>
+    <link href="{% static 'oracleapp/table.css' %}"
+          rel='stylesheet'
+          type='text/css'>
+
+    <style>
+        button{
+            float: right;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function initSelect_lis(temp,temp2){
+            fm=document.getElementById("fm");
+                for(j=0; j<fm.lprod_gu.length; j++){
+                    if(temp == fm.lprod_gu[j].value){
+                        fm.lprod_gu[j].selected = true;
+                    }
+                }
+                for(i=0; i<fm.prod_nm.length; i++){
+                    if(temp2 == fm.prod_nm[i].value){
+                        fm.prod_nm[i].selected = true;
+                    }
+                }
+        }
+
+        function changeP_nm() {
+            fm = document.getElementById("fm");
+            
+            fm.action = '/oracle/product/';
+            fm.submit();
+        }
+
+        function goSearch(){            
+            fm = document.getElementById("fm");
+            
+            fm.action = '/oracle/product/';
+            fm.submit();
+        }
+
+        function goCart(){
+            fm = document.getElementById("fm");
+
+            fm.action = '/oracle/product_insert/';
+            fm.submit();
+        }
+    </script>
+
+</head>
+<body onload='initSelect_lis("{{lprod_gu}}","{{prod_name}}");'>
+    <h3>제품</h3>
+    <h5>주문하기</h5>
+    {{prod_name}}
+    <form id="fm" method="post" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+        <label for="l_gu">상품분류명</label>
+        <select name="lprod_gu" onchange="changeP_nm()">
+        {% for row in lprod_list %}
+        <option value="{{row.lprod_gu}}">{{row.lprod_nm}}</option>
+        {% endfor %}
+        </select>
+
+        <label for="p_nm">상품명</label>
+        <select name="prod_nm" id="nm">
+        {% for row2 in prod_list %}
+        <option value="{{row2.prod_id}}">{{row2.prod_name}}</option>
+        {% endfor %}
+        </select>
+
+        <div class="col-12">
+          <button class="btn-two yellow rounded" type="button" onclick="goSearch()">검색하기</button>
+        </div>
+
+
+    <hr>
+
+    <table>
+        <tr>
+            <th>상품명</th>
+            <th>판매가격</th>
+        </tr>
+        {% for row in prod_cost %}
+        <tr class='col'>
+            <td>{{row.prod_name}}</td>
+            <td>{{row.prod_cost}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+        {% csrf_token %}
+        <label for="qty">구매수량</label>
+        <select name="cart_qty">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </form>
+
+    <hr>
+    
+    <div class="col-12">
+        <button class="btn-two yellow rounded" type="button" onclick="goCart()">주문하기</button>
+    </div>
+
+</body>
+</html>

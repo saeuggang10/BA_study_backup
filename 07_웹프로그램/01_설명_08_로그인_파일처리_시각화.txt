@@ -1,0 +1,69 @@
+<로그인/로그아웃 처리하기>
+1. 로그아웃 처리를 위한 setting.py 설정 추가하기
+ - 페이지가 닫히면 로그아웃 처리되도록 처리 
+ - SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+ ** 로그인처리 => 세션(session)처리와 같은 말...
+
+2. 로그인/로그아웃 Form(화면) 만들기
+ * mainapp의 index.html에서 진행
+ * index.html 페이지 body 밑에 로그인/로그아웃을 위한
+   form 태그 및 input 태그 추가하기 
+
+3. nonmodelapp에서 
+ * url : /nonmodel/login_chk/ 처리 (로그인 처리)
+ * views 함수 : login_chk()
+
+ * url : /nonmodel/logout_chk/ 처리 (로그아웃 처리)
+ * views 함수 :  logout_chk()
+
+--------------------------------
+<파일 업로드 / 다운로드 처리하기>
+1. 파일 업로드
+ * url : /nonmodel/file_upload_form/
+ * views 함수 : getFileUploadForm
+ * html : /file_upload/file_upload_form.html
+ * nonmodelapp의 index.html에 바로가기 링크 추가
+ --> 위 html 연결까지만 진행
+
+2. 파일 다운로드
+ * url : /nonmodel/file_down/
+ * views 함수 : setDownload()
+ * html 없음...
+ * views에 함수까지만 만들어놓기
+
+---------------------------
+<데이터 시각화 이미지를 웹에서 표현하기>
+ * url : /nonmodel/data_view/
+ * views함수 : data_Visualization()
+ * html : /data_view/data_view.html 
+ * 시각화 이미지를 저장할 폴더 생성 : data_img
+   /static/nonmodelapp/data_img/
+
+
+<지도맵 시각화 -> 웹에 표현하기>
+ * url : /nonmodel/map_view/
+ * views함수 : map_Visualization()
+ * html : /map_view/map_view.html 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

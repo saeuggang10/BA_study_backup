@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_TABLE</title>
+
+    <style>
+        table{
+            border: 1px;
+            border-style: solid;
+            border-color: black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td{
+            padding: 15px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        th{
+            background-color: rgb(255, 255, 164);
+        }
+    </style>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        08_table페이지 입니다
+    </p>
+    <hr/>
+
+    <table>
+        <tr>
+            <th width='100'>아이디</th>
+            <th width='100'>이름</th>
+            <th width='400'>주소</th>
+        </tr>
+        <!-- 행이 여러개인 경우 list타입의 데이터를 아래 출력
+             for문을 이용해서 tr태그 한개에 td의 값을 변경하면서 계속 반복 출력함 -->
+
+        {% for val in mem_lis %}
+        <tr>
+            <td>{{val.mem_id}}</td>
+            <td>{{val.mem_name}}</td>
+            <td>{{val.mem_addr}}</td>
+        </tr>
+        {% endfor %}
+
+        {% comment %} <tr> html_python 주석
+            <td>{{mem_id}}</td>
+            <td>{{mem_name}}</td>
+            <td>{{mem_addr}}</td>
+        </tr> {% endcomment %}
+    </table>
+
+    <hr/>
+    <p>
+        {{mem_name}}님 안녕하세요.
+        <br/>
+        아이디는 {{mem_id}}이고,
+        <br/>
+        살고 있는 곳은 {{mem_addr}}입니다.
+    </p>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>17_CSSNAV</title>
+
+    <style>
+        ul{
+            list-style-type: none;
+            background-color: yellow;
+            padding: 0px;
+            margin: 0px;
+            width: 200px;
+        }
+        li{
+            border-bottom: 1px solid darkgray;
+            text-align: center;
+        }
+        li:last-child{
+            border-bottom: none;
+        }
+        li a{
+            color: black;
+            padding: 0px;
+            text-decoration: none; /*a태그의 언더라인 없애기*/
+            display: block; /*열태그를 블록태그로 변환 : 블록(행)을 다 차지했을 때*/
+        }
+        li a:hover{
+            background-color: aqua;
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        17_cssNav페이지 입니다
+    </p>
+    <hr/>
+
+    <h3>수직 네비게이션(메뉴)</h3>
+    <hr/>
+    <ul>
+        <li><a href="/">MainApp 바로가기</a></li>
+        <li><a href="/first/">FirstApp 바로가기</a></li>
+        <li><a href="/front/">FrontApp 바로가기</a></li>
+        <li><a href="/second/">SecondApp 바로가기</a></li>
+    </ul>
+</body>
+</html>

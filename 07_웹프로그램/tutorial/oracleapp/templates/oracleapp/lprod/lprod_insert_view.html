@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>CART_INSERT_VIEW</title>
+
+    <link href="{% static 'oracleapp/form.css' %}"
+          rel='stylesheet'
+          type='text/css'>
+
+    <script type="text/javascript">
+        function goUpdate(){
+            fm=document.getElementById("fm");
+
+            fm.action = '/oracle/lprod_insert/';
+            fm.submit();
+        }
+    </script>
+
+</head>
+<body>
+    <h3>상품분류정보</h3>
+    <h5>추가</h5>
+
+    <form id="fm" method="post" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="col-md-4">
+            <label for="l_id">순서</label>
+            <input type="text" name="lprod_id" class="form-control" value="111" required>
+        </div>
+        <div class="col-md-4">
+            <label for="l_gu">상품분류코드</label>
+            <input type="text" name="lprod_gu" class="form-control" value="P501" required>
+            <div class="valid-feedback">
+                * 2023071300001~ 입력해주세요
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="l_nm">상품분류명</label>
+            <input type="text" name="lprod_nm" class="form-control" value="임시" required>
+            <div class="valid-feedback">
+                * P32000004~ 입력해주세요
+            </div>
+        </div>
+        
+        <div class="col-12">
+          <button class="btn-two yellow rounded" type="button" onclick="goUpdate()">저장</button>
+        </div>
+
+      </form>
+</body>
+</html>

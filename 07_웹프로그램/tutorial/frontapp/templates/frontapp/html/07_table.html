@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_TABLE</title>
+
+    <style>
+        table{
+            border: 1px;
+            border-style: solid;
+            border-color: black;
+            border-collapse: collapse;
+        }
+        th, td{
+            padding: 15px;
+            /*값 1개 입력 : 위, 오, 아래, 왼 모두 같은 값으로 여백
+              값 4개 입력(15px 10px 350px 150px) : 위, 오, 아래, 왼으로 여백줌
+              값 2개 입력 : 왼오, 위아래
+              값 3개 입력 : 왼오, 위, 아래*/
+            text-align: center;
+        }
+        th{
+            background-color: rgb(255, 255, 164);
+        }
+    </style>
+
+</head>
+<body>
+    <h4>FrontApp : index</h4>
+
+    <p>
+        <a href='/front/'>[FrontApp-Index 바로가기]</a>
+    </p>
+    <hr/>
+    <p>
+        07_table페이지 입니다.
+    </p>
+    <hr/>
+
+    <p>
+    <!--
+        table : 행/열을 표현하는 표
+        th : 제목(= 열), 기본 가운데 정렬, 볼드체
+        tr : 행 -> python의 list가 적용됨(구조 : [{1행}, {2행}, ...])
+        td : 열 -> python의 dic의 key가 적용됨
+    -->
+    </p>
+    <table border="1" width="100%"> <!-- border=1:선을 그림 / 0:선을 안그림 #defult -->
+        <tr>
+            <th width="100">아이디</th>
+            <th width="100">패스워드</th>
+            <th width="100">이름</th>
+        </tr>
+
+        <tr>
+            <td align="center">
+                <a href="/front/">a001</a>
+            </td>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동</td>
+        </tr>
+        <tr>
+            <td align="center">b001</td>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동2</td>
+        </tr>
+        <tr>
+            <td align="center">c001</td>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동3</td>
+        </tr>
+        <tr> <!-- 셀 열병합 -->
+            <td align="center" colspan="2">d001</td>
+            <td align="center">홍길동3</td>
+        </tr>
+        <tr>
+            <td align="center">d001</td>
+            <td align="center" colspan="2">홍길동3</td>
+        </tr>
+        <tr>
+            <td align="center" colspan="3">홍길동3</td>
+        </tr>
+        <tr> <!-- 셀 행병합 -->
+            <td align="center" rowspan="3">c001</td>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동3</td>
+        </tr>
+        <tr>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동3</td>
+        </tr>
+        <tr>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동3</td>
+        </tr>
+        <tr>
+            <td align="center">c001</td>
+            <td align="center" rowspan="2">asf1234</td>
+            <td align="center">홍길동3</td>
+        </tr>
+        <tr>
+            <td align="center">asf1234</td>
+            <td align="center">홍길동3</td>
+        </tr>
+    </table>
+</body>
+</html>

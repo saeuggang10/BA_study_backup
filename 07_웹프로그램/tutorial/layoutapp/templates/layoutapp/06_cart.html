@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_CART 페이지</title>
+
+    <style> 
+        div{
+            padding: 30px;
+            border : 5px black;
+        }
+    </style>
+
+
+    <script type = "text/javascript">
+        function count_del() {
+            fm = document.getElementById("fm");
+            
+            if (fm.prod_count.value != "0"){
+                //alert("not 0");
+                fm.prod_count.value = "0"
+            }
+        }
+
+        function count_del2() {
+            fm = document.getElementById("fm");
+            
+            if (fm.prod2_count.value != "0"){
+                //alert("not 0");
+                fm.prod2_count.value = "0"
+            }
+        }
+
+
+        function total_price() {
+            fm = document.getElementById("fm");
+
+            price_1 = fm.prod_price.value;
+            price_2 = fm.prod2_price.value;
+
+            count_1 = fm.prod_count.value;
+            count_2 = fm.prod2_count.value;
+
+            p1 = parseInt(price_1);
+            p2 = parseInt(price_2);
+            c1 = parseInt(count_1);
+            c2 = parseInt(count_2);
+
+            fm.prod_total_price_text.value = (p1*c1 + p2*c2);
+    
+        }
+
+        function coupon_discount() {
+            fm = document.getElementById("fm");
+
+            for (i=0; i<fm.prod_coupon_select.options.length; i++) {
+                if(fm.prod_coupon_select.options[i].selected == true){
+                    alert("쿠폰할인을 적용하시겠습니까? 총 결제금액이 수정됩니다.  ");
+                    a = fm.prod_coupon_select.options[i].value
+                    break;
+                }
+            }
+
+            if (a == "회원가입쿠폰") {
+                fm.prod_total_price_text.value = (p1*c1 + p2*c2) * 0.8  ;
+            }
+            if (a == "배송비쿠폰") {
+                fm.prod_total_price_text.value = (p1*c1 + p2*c2) -3000 ;
+            }
+            if (a == "통신사쿠폰") {
+                fm.prod_total_price_text.value = (p1*c1 + p2*c2) * 0.7 ;
+            }
+            if (a == "우수회원쿠폰") {
+                fm.prod_total_price_text.value = (p1*c1 + p2*c2) -10000 ;
+            }
+                
+            
+            
+        }
+
+        function cart_fin() {
+            alert("주문이 완료되었습니다.");
+        }
+
+    </script>
+</head>
+<body>
+
+    <form action="#" id="fm" method="post">
+
+    
+
+    <div>
+        <img src="/static/layoutapp/images/meat.jpg" width="100" height="100">
+        상품명 : <input type="text" name = "prod_name" value = "소고기 전골">
+
+
+        수량 : 
+        <select name="prod_count" style='width : 100px; height : 30px;'>
+                
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+
+
+        판매가 : <input type="text" name = "prod_price" value ="10000">
+
+        주문삭제 : <input type="button" name= "prod_delete" value ="삭제하기" onclick = "count_del()">
+
+    </div>
+    <!-- 두번째 상품 -->
+
+    
+        
+    
+    <div>
+        <img src="/static/layoutapp/images/camera.jpg" width="100" height="100">
+        상품명 : <input type="text" name = "prod2_name" value = "인스탁스 미니 90 카메라">
+        
+
+        수량 : 
+        <select name="prod2_count" style='width : 100px; height : 30px;' >
+                
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+
+        판매가 : <input type="text" name = "prod2_price" value ="196800">
+
+        주문삭제 : <input type="button" name= "prod2_delete" value ="삭제하기" onclick = "count_del2()">
+
+    </div>
+
+    <div>
+        <input type="text" name="prod_total_price_text" value=""style='width : 130px; height : 30px;' >
+        <input type="button" name="prod_total_price_button" value="총 결제금액 조회" onclick="total_price()">
+        <br>
+        <br>
+            쿠폰 선택 : 
+
+            <select name="prod_coupon_select" style='width : 130px; height : 30px;' >
+                    
+                <option value="회원가입쿠폰">회원가입쿠폰</option>
+                <option value="배송비쿠폰">배송비 쿠폰</option>
+                <option value="통신사쿠폰">통신사 쿠폰</option>
+                <option value="우수회원쿠폰">이달의 우수회원 쿠폰</option>
+                
+            </select>
+
+            <input type="button" name="prod_coupon_button" value="쿠폰적용하기" onclick="coupon_discount()">
+
+        <br>
+        <br>
+        <br>
+
+
+            <!-- 결제버튼  -->
+            <input type="button" name= "prod_pay" value ="주문하기 " style = 'width : 100px; height : 80px;' onclick="cart_fin()">
+    </div>
+</form>
+    
+</body>
+</html>
